@@ -1,0 +1,18 @@
+{
+    "law-cert": 40,
+    "law-boat": 44,
+    "law-crime": 35,
+    "law-sea": 10,
+    "sail-way": 48,
+    "sail-light": 88,
+    "sail-common-way": 43,
+    "sail-common-mark": 54,
+    "weather-common": 90,
+    "sail-common-engine": 54,
+    "sail-common-operate": 55,
+    "sail-common-maintain": 50,
+    "seamanship-tech": 20,
+    "seamanship-basic": 39,
+    "seamanship-equip": 30,
+    "communication-management": 49
+}
