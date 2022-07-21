@@ -1,9 +1,6 @@
 # Read pdf.
 import json
 from pathlib import Path
-from pprint import pprint
-
-from PyPDF2 import PdfReader
 
 
 def convert():
