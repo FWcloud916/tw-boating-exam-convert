@@ -4,6 +4,7 @@ from pathlib import Path
 
 
 def convert():
+    version = "1110728"
     answer_pattern = ['( A )', '( B )', '( C )', '( D )']
     answer_map = {
         '( A )': 'A',
@@ -42,7 +43,7 @@ def convert():
     categories = {}
     category = ''
 
-    path = Path('clean/1110210.txt')
+    path = Path(f'clean/{version}.txt')
     num = 0
     answer = ''
 
@@ -89,32 +90,37 @@ def convert():
 
         result[category][num]['question'] = text
 
-    with Path('output/1110210_exam.json').open('w', encoding='utf-8') as f:
-        f.write(
-            json.dumps(
-                result,
-                ensure_ascii=False,
-                indent=4
+    gen = {
+        'output': version,
+        'main': 'latest',
+    }
+    for dir, prefix in gen.items():
+        with Path(f'{dir}/{prefix}_exam.json').open('w', encoding='utf-8') as f:
+            f.write(
+                json.dumps(
+                    result,
+                    ensure_ascii=False,
+                    indent=4
+                )
             )
-        )
 
-    with Path('output/1110210_category.json').open('w', encoding='utf-8') as f:
-        f.write(
-            json.dumps(
-                categories,
-                ensure_ascii=False,
-                indent=4
+        with Path(f'{dir}/{prefix}_category.json').open('w', encoding='utf-8') as f:
+            f.write(
+                json.dumps(
+                    categories,
+                    ensure_ascii=False,
+                    indent=4
+                )
             )
-        )
 
-    with Path('output/1110210_category_mapping.json').open('w', encoding='utf-8') as f:
-        f.write(
-            json.dumps(
-                {v: k for k, v in category_map.items()},
-                ensure_ascii=False,
-                indent=4
+        with Path(f'{dir}/{prefix}_category_mapping.json').open('w', encoding='utf-8') as f:
+            f.write(
+                json.dumps(
+                    {v: k for k, v in category_map.items()},
+                    ensure_ascii=False,
+                    indent=4
+                )
             )
-        )
 
 
 if __name__ == '__main__':
